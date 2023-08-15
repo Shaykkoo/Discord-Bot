@@ -8,7 +8,7 @@ const prefix = '>';
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] }); 
 
 client.on("ready", () =>{
-    console.log("Bot is Online");
+    console.log("🟢 Bot is Online🟢");
 
     const activities = [
         'Dracz\'s Slave',
@@ -136,6 +136,9 @@ client.on(Events.InteractionCreate, async interaction => {   // Recrutement
         if (member.roles.cache.some(role => role.name === 'Officer') ) {
             await interaction.reply({ content: `You can't do the recruitment since you are already an <@&1069252431394910300>`, ephemeral: true});
         };
+        if (member.roles.cache.some(role => role.name === 'Wait For Apply') ) {
+            await interaction.reply({ content: `You can't do the recruitment since you are already waiting to be applied in GitGud`, ephemeral: true});
+        };
 
 
         await interaction.reply({embeds: [embedRecruitment], components: [rowIMC], ephemeral: true});
@@ -155,6 +158,10 @@ client.on(Events.InteractionCreate, async interaction => { // Visiteur
     if (member2.roles.cache.some(role => role.name === 'Officer') ) {
         await interaction.reply({ content: `You can't pick the  <@&1138944347400843294> role since you are already an <@&1069252431394910300>`, ephemeral: true});
     };
+    if (member2.roles.cache.some(role => role.name === 'Wait For Apply') ) {
+        await interaction.reply({ content: `You can't pick the  <@&1138944347400843294> role since you are already waiting to be applied in GitGud`, ephemeral: true});
+    };
+
 
     const myGuild = client.guilds.cache.get('1014524762178994247');
     const role1 = myGuild.roles.cache.find(role => role.name === 'Visitor');
@@ -199,6 +206,8 @@ client.on(Events.InteractionCreate, async interaction => {
         await interaction.reply({embeds: [embedMC], ephemeral: true}); 
     }
 });
+
+
  
 
 

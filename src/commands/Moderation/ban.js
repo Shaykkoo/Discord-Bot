@@ -11,7 +11,7 @@ module.exports = {
 
         const users = interaction.options.getUser('user');
         const ID = users.id;
-        const banUser = client.users.cache.get(ID)
+        const banUser = client.users.cache.get(ID);
 
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: "You must have the ban permission", ephemeral: true});
         if (interaction.member.id === ID) return await interaction.reply({ content: "You cannot ban yourself", ephemeral: true});
@@ -21,20 +21,23 @@ module.exports = {
 
         const embed = new EmbedBuilder()
         .setColor("Red")
-        .setDescription(`:white_check_mark: ${banUser.tag} has been __**banned**__  | Reason : ${reason}`)
+        .setTitle(` :rotating_light: **${banUser.username} has been Banned** ! :rotating_light:`)
+        .setDescription(` *By* : <@${interaction.member.id}> \r *Reason* : **${reason}**`)
     
         const dmEmbed = new EmbedBuilder()
         .setColor("Red")
-        .setDescription(`:white_check_mark: You were **banned** from ${interaction.guild.name} | ${reason}`)
+        .setTitle(' :rotating_light:  **You were Banned ! ** :rotating_light: ')
+        .setDescription(`*From* : **${interaction.guild.name}** \r *By* : **<@${interaction.member.id}>** \r *Reason* : **${reason}**`)
 
-        await interaction.guild.bans.create(banUser.id, {reason}).catch(err => {
-            return interaction.reply({ content: "You cannot ban this member", ephemeral: true})
-        })
 
         await banUser.send({ embeds: [dmEmbed]}).catch(err =>{
             return;
         })
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.guild.bans.create(banUser.id, {reason}).catch(err => {
+            return interaction.reply({ content: "You cannot ban this member", ephemeral: true})
+        })
+
+        await interaction.reply({ embeds: [embed]});
     }
 }

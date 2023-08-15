@@ -19,7 +19,8 @@ module.exports = {
 
         const embed = new EmbedBuilder()
         .setColor("Green")
-        .setDescription(`:white_check_mark: ${userID} has been __**unbanned**__  | Reason : ${reason}`)
+        .setTitle(`👼 **${userID.username} has been Unbanned** 👼`)
+        .setDescription(`*By* : <@${interaction.member.id}>\r *Reason* : **${reason}**`)
 
         await interaction.guild.bans.fetch()
         .then(async bans => {
@@ -34,6 +35,6 @@ module.exports = {
 
         
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed] });
     }
 }
