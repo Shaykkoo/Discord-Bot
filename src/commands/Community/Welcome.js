@@ -20,6 +20,7 @@ module.exports = {
         .setThumbnail(`https://cdn.discordapp.com/attachments/1082808904322384083/1082808904565669969/gitgud-thepruld.gif`)
         .addFields({name: `📝**・__Recruitment__**`, value: `**Want to join GitGud ? Click on the button and follow the instructions below.**`, inline: true})
         .addFields({name: `👤**・__Visitor__**`, value: `**You've come only to chat with GitGud members.**`, inline: true})
+        .addFields({name: ` `, value: `:face_with_monocle: __*If you have any question about an exception for the recruitment, feel free to click on visitor button and ask question in GitGud Channel*__`, inline: false})
         .addFields({name: ` `, value: `:warning: __*Please do not click on the visitor button to speed up your application by contacting Commander.*__`, inline: false})
         .addFields({name: ` `, value: `*If you have a problem during the process, please contact <@776766024795553804> by private message.*`, inline: false})
         .setFooter({ text: "GitGud", iconURL: `https://cdn.discordapp.com/attachments/1004032905636495434/1138839802859491410/image.png`}

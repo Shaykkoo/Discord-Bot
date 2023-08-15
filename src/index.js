@@ -8,7 +8,7 @@ const prefix = '>';
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] }); 
 
 client.on("ready", () =>{
-    console.log("🟢 Bot is Online🟢");
+    console.log('🟢 Bot is Online🟢');
 
     const activities = [
         'Dracz\'s Slave',
@@ -87,7 +87,7 @@ const commandFolders = fs.readdirSync("./src/commands");
         .setURL("https://discord.gg/NkDSpXKf7z")
         .setDescription('**To join GitGud, you have to meet the conditions below !** __**You will have to send screenshots later !**__ ')
         .setThumbnail(`https://cdn.discordapp.com/attachments/1082808904322384083/1082808904565669969/gitgud-thepruld.gif`)
-        .addFields({name: `📜**・Conditions :**`, value: `>>> <:levelup:1139002916942925825> Level 10.000. 
+        .addFields({name: `📜**・Conditions :**`, value: `>>> <:levelup:1139002916942925825> Level 10.000 *(If you have good Craftings and you aren't Lv.10k, you can try to continue the recruitment).* 
                                                             \r  <:Contrib:1139001315138220032> 600.000 Contribution Weekly in your previous guild. 
                                                             \r  <:Tier_icon:1139001835806531664> Tier 24 Weekly. 
                                                             \r  <:HoL:1139199071714807918> Good Craftings with Blue Lines such as : **+2, Demon Power, Manticore**.`, inline: true})
